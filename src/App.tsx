@@ -5,6 +5,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import apiConfig from "./api-config.json";
 import { 
   Palette, 
   Code2, 
@@ -38,6 +39,22 @@ export default function App() {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
+
+    fetch(apiConfig.url, {
+    method: "POST",
+    headers: {
+      Authorization: apiConfig.token,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      business_name: apiConfig.business_name,
+      knowledge: apiConfig.knowledge,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log("API success:", data))
+    .catch((err) => console.error("API error:", err));
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
