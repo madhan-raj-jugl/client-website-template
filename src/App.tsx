@@ -20,13 +20,8 @@ import {
 } from "lucide-react";
 import siteConfig from "./site-config.json";
 
-const IconMap: Record<string, LucideIcon> = {
-  Palette,
-  Code2,
-  BarChart3,
-  Mail,
-  MapPin,
-};
+const staticIcons = [Palette, Code2, BarChart3];
+
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -176,18 +171,20 @@ export default function App() {
           </motion.div>
         </div>
       </section>
-
-      {/* Features Section */}
+{/* Features Section */}
 <section id="features" className="py-24 bg-white">
   <div className="max-w-7xl mx-auto px-6">
     <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        Our Services
+      </h2>
       <div className="w-12 h-1 bg-primary mx-auto rounded-full" />
     </div>
 
     <div className="grid md:grid-cols-3 gap-8">
       {siteConfig.features.map((feature, index) => {
-        const Icon = IconMap[feature.icon] || Palette;
+        const Icon = staticIcons[index % staticIcons.length];
+
         return (
           <motion.div
             key={feature.id}
@@ -200,7 +197,11 @@ export default function App() {
             <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
               <Icon className="w-7 h-7" />
             </div>
-            <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+
+            <h3 className="text-xl font-bold mb-3">
+              {feature.title}
+            </h3>
+
             <p className="text-slate-600 leading-relaxed">
               {feature.description}
             </p>
