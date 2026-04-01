@@ -28,9 +28,9 @@
       "icon": "BarChart3"
     }
   ],
-  "about": {
+  "secondarySection": {
     "title": "Our Story",
-    "content": "Founded in 2024, Lumina Creative has been at the forefront of digital innovation. We believe that great design is more than just aesthetics; it's about solving problems and creating meaningful connections.",
+    "description": "Founded in 2024, Lumina Creative has been at the forefront of digital innovation. We believe that great design is more than just aesthetics; it's about solving problems and creating meaningful connections.",
     "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070"
   },
   "contact": {

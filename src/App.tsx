@@ -223,7 +223,7 @@ export default function App() {
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-xl">
               <img 
-                src={siteConfig.about.imageUrl} 
+                src={siteConfig.secondarySection.imageUrl} 
                 alt="About" 
                 className="w-full h-full object-contain"
                 referrerPolicy="no-referrer"
@@ -237,9 +237,9 @@ export default function App() {
             viewport={{ once: true }}
             className="order-1 md:order-2"
           >
-            <h2 className="text-4xl font-bold mb-6">{siteConfig.about.title}</h2>
+            <h2 className="text-4xl font-bold mb-6">{siteConfig.secondarySection.title}</h2>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              {siteConfig.about.content}
+              {siteConfig.secondarySection.description}
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="p-6 bg-white rounded-2xl shadow-sm">
