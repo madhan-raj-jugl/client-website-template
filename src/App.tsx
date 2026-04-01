@@ -232,7 +232,7 @@ export default function App() {
               <img 
                 src={siteConfig.about.imageUrl} 
                 alt="About" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 referrerPolicy="no-referrer"
               />
             </div>
