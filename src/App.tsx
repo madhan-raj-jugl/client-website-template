@@ -26,6 +26,7 @@ const staticIcons = [Palette, Code2, BarChart3];
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Set theme color
@@ -35,6 +36,8 @@ export default function App() {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
+
+      setLoading(true);
 
     fetch(apiConfig.url, {
       method: "POST",
@@ -64,12 +67,23 @@ export default function App() {
           console.error("Jugl SDK not loaded");
         }
       })
-      .catch((err) => console.error("API error:", err));
+      .catch((err) => console.error("API error:", err))
+      .finally(() => setLoading(false));
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
+    <div className="min-h-screen flex flex-col">
+  {loading && (
+    <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-slate-300 border-t-[var(--primary-color)]"></div>
+      <p className="mt-4 text-sm text-slate-600 font-medium">
+        Loading chatbot...
+      </p>
+    </div>
+  )}
+  
     <div className="min-h-screen flex flex-col">
       {/* Navigation */}
       <nav
