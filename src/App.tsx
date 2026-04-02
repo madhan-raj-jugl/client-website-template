@@ -73,18 +73,19 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
+  return (  
     <div className="min-h-screen flex flex-col">
-  {loading && (
-    <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm">
-      <div className="h-12 w-12 animate-spin rounded-full border-4 border-slate-300 border-t-[var(--primary-color)]"></div>
-      <p className="mt-4 text-sm text-slate-600 font-medium">
-        Loading chatbot...
-      </p>
-    </div>
-  )}
+
+    {loading && (
+      <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm">
+         <div className="h-12 w-12 animate-spin rounded-full border-4 border-slate-300 border-t-[var(--primary-color)]"></div>
+            <p className="mt-4 text-sm text-slate-600 font-medium">
+           Loading chatbot...
+           </p>
+          </div>
+)}
   
-    <div className="min-h-screen flex flex-col">
+
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
