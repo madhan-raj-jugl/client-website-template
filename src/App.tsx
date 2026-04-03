@@ -176,7 +176,7 @@ export default function App() {
               <img 
                 src={siteConfig.hero.imageUrl} 
                 alt="Hero" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 referrerPolicy="no-referrer"
               />
             </div>
